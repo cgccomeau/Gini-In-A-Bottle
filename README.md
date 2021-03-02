@@ -33,16 +33,14 @@ Neural Networks
 Due to the limited data points available and the high dimension of data, we expect the K-Nearest Neighbors to perform the most poorly. We expect Linear Regression to perform the best because most of the parameters we will be using would likely be closely related to the Gini coefficient.
 
 
-# Discussion
-	Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)3 and unexpected (i.e. happiness, COVID case count) factors.
+## Discussion
+Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)3 and unexpected (i.e. happiness, COVID case count) factors.
 
 
 
 
 
-
-
-References
+## References
 “Coronavirus vs. Inequality.” UNDP, feature.undp.org/coronavirus-vs-inequality/.
 “Income Inequality - OECD Data.” TheOECD, data.oecd.org/inequality/income-inequality.htm. 
 Kuznets, Simon. "Economic growth and income inequality." The American economic review 45.1 (1955): 1-28.
