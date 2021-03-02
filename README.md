@@ -18,18 +18,21 @@ The goal of this study is to understand how different statistics indicating a co
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
-Clustering: We can use clustering algorithms (K-Means, GMM, Hierarchical or DBSCAN), to group together countries with similar features. 
-Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
+* Clustering: We can use clustering algorithms (K-Means, GMM, Hierarchical or DBSCAN), to group together countries with similar features. 
+* Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
 
 We believe dimensionality reduction will reduce complexity and improve the results of clustering. After running clustering algorithms, we might expect countries in organizations like the EU or OPEC to form clusters. 
 
 
 
 ## Supervised Methods 
-Our general idea is to develop a prediction model that would output our predicted Gini coefficient for a specific country in a specific year, given other parameters like happiness scores or mortality ratios. We would focus both on factors that are dependent on income, as well as those that are not directly dependent, and find correlations between the weights of these factors and the prediction accuracy. We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
-Linear Regression
-K-Nearest Neighbors
-Neural Networks
+Our general idea is to develop a prediction model that would output our predicted Gini coefficient for a specific country in a specific year, given other parameters like happiness scores or mortality ratios. We would focus both on factors that are dependent on income, as well as those that are not directly dependent, and find correlations between the weights of these factors and the prediction accuracy.
+
+We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
+* Linear Regression
+* K-Nearest Neighbors
+* Neural Networks
+
 Due to the limited data points available and the high dimension of data, we expect the K-Nearest Neighbors to perform the most poorly. We expect Linear Regression to perform the best because most of the parameters we will be using would likely be closely related to the Gini coefficient.
 
 
