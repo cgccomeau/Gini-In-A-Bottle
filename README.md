@@ -51,17 +51,17 @@ Challenges we may encounter include acquiring sufficient data as well as success
 
 ## Appendix
 
-# Relation to Current Events
+### Relation to Current Events
 With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more. According to the United Nations Development Programme, "The virus is ruthlessly exposing the gaps between the haves and the have nots, both within and between countries." In this study, we hope to discover significant factors that correlate to a country's Gini coefficient, including those related to the COVID-19 pandemic.
 
-# Previous Research
+### Previous Research
 In the greater scope of income inequality and economic development, the Gini Coefficient has been used as one factor to help predict economic growth &#x00B4, however we have found only one other source that attempted to predict a state’s Gini Coefficient like us. In a model created by Cabrera and Srinath5, they tried to use “demographics, race, education, and federal & state spend[ing] in education” to predict whether a state or county’s Gini Coefficient is above or below the national median. Pulling the majority of their data from US Federal Government sources like the US Census, their goal was to better understand how and why America’s domestic features made its Gini Coefficient significantly higher than that of the other G7 countries (0.47 to 0.33), and they found that race features were the most successful at predicting income inequality, specifically the proportion of the black and white population alone in a Random Forest Classifier yielded an accuracy of 96% on determining whether a region was above or below the median national Gini Coefficient.
 
 About using the Gini Coefficient to predict economic growth in Dutt and Tsetlin’s work at the INSEAD Singapore Business school, the authors found that the fraction of the population living in poverty was much more accurate in predicting economic growth measures such as “schooling, institutional quality, and per capita income” than the Gini Coefficient. They noted that the poverty measures are influenced by those in the bottom economic ring of society, whereas the Gini coefficient is equally influenced by both sides of the economic spectrum, and recommended on focusing on alleviating poverty at the bottom over addressing a country’s income inequality as a policy approach for increasing economic development.
 
 These literature reviews are important because while the Gini Coefficient provides a wealth of information on a country’s economic condition, they do not provide the whole picture and as a result, our group would like to note our results does not claim to offer a perfect solution to this complex issue.
 
-# Expected Results from Supervised Methods
+### Expected Results from Supervised Methods
 
 * Linear Regression: attempt to find a direct relationship between these parameters and the Gini coefficient. However, this would not be able to capture complex or non-linear relationships 
 * K-Nearest Neighbors: attempt to find similarities between instances using measures such as Euclidean distance and Hamming distance. However, this is extremely expensive and might perform poorly with a large number of parameters and not enough instances.
