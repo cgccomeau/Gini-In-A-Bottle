@@ -7,9 +7,9 @@ Spring 2021 CS 4641 Intro to Machine Learning: Semester-long Project
 
 ## Introduction
 
-With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more.<sup>1</sup> 
+With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more.&#x00B1;
 
-The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequality), measures a country's income inequality by plotting the cumulative percentiles of its population against its cumulative income, as visualized by the Lorenz curve; the index can be determined by comparison to the 45 degree line of perfect income equality.<sup>2</sup> 
+The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequality), measures a country's income inequality by plotting the cumulative percentiles of its population against its cumulative income, as visualized by the Lorenz curve; the index can be determined by comparison to the 45 degree line of perfect income equality.&#x00B2; 
 
 ![화면 캡처 2021-03-02 231757](https://user-images.githubusercontent.com/44009995/109751978-912aec00-7bad-11eb-9526-3545116a3191.png)
 
@@ -40,7 +40,7 @@ Due to the limited data points available and the high dimension of data, we expe
 
 
 ## Discussion
-Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)<sup>3</sup> and unexpected (i.e. happiness, COVID case count) factors.
+Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)&#x00B3; and unexpected (i.e. happiness, COVID case count) factors.
 
 
 
