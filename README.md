@@ -45,10 +45,10 @@ Challenges we may encounter include acquiring sufficient data as well as success
 
 
 ## References
-* “Coronavirus vs. Inequality.” UNDP, feature.undp.org/coronavirus-vs-inequality/.
-* “Income Inequality - OECD Data.” TheOECD, data.oecd.org/inequality/income-inequality.htm. 
-* Kuznets, Simon. "Economic growth and income inequality." The American economic review 45.1 (1955): 1-28.
-* Dutt, Pushan, and Ilia Tsetlin. "Income Distribution and Economic Development: Insights from Machine Learning." Wiley Online Library. INSEAD (Institut Européen D'Administration Des Affaires) Singapore, 11 May 2020. Web.
-* Cabrera, Analiz, and Sindhu Srinath. "Predicting Inequality in the United States: A Machine Learning Exploration." Medium. The Startup, 13 Nov. 2020. Web. 01 Mar. 2021.
+  1. “Coronavirus vs. Inequality.” UNDP, feature.undp.org/coronavirus-vs-inequality/.
+  2. “Income Inequality - OECD Data.” TheOECD, data.oecd.org/inequality/income-inequality.htm. 
+  3. Kuznets, Simon. "Economic growth and income inequality." The American economic review 45.1 (1955): 1-28.
+  4. Dutt, Pushan, and Ilia Tsetlin. "Income Distribution and Economic Development: Insights from Machine Learning." Wiley Online Library. INSEAD (Institut Européen D'Administration Des Affaires) Singapore, 11 May 2020. Web.
+  5. Cabrera, Analiz, and Sindhu Srinath. "Predicting Inequality in the United States: A Machine Learning Exploration." Medium. The Startup, 13 Nov. 2020. Web. 01 Mar. 2021.
 
 
