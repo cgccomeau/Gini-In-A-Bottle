@@ -7,7 +7,7 @@ Spring 2021 CS 4641 Intro to Machine Learning: Semester-long Project
 
 ## Introduction
 
-With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more.&#x00B1;
+With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more.&#x00B9;
 
 The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequality), measures a country's income inequality by plotting the cumulative percentiles of its population against its cumulative income, as visualized by the Lorenz curve; the index can be determined by comparison to the 45 degree line of perfect income equality.&#x00B2; 
 
