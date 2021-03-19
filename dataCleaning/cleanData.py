@@ -3,6 +3,7 @@ import os
 import pandas as pd 
 
 
+
 # with open('2011data.csv', 'w', newline='') as csvfile:
 
     # fieldnames = ['CountryName', 'GiniCoff', 'IncomePerPeerson', 'InvestmentShareOfGDP', 'TaxShareOfGDP']
@@ -21,7 +22,9 @@ import pandas as pd
     #                             'InvestmentShareOfGDP': row['invest_%_gdp'], 
     #                             'TaxShareOfGDP': row['tax_%_gdp']})
     
-    
+
+
+
 # for filename in os.listdir('./rawSets'):
 #     f = open('./rawSets/' + filename,'r')
 #     reader = csv.DictReader(f)
@@ -39,12 +42,35 @@ import pandas as pd
 #                     writer.writerow({'CountryName': row['Entity'], 
 #                                 header[3]: row[header[3]]})
 #         data1 = pd.read_csv('2011data.csv',engine='python') 
-#         data2 = pd.read_csv('temp.csv',engine='python') 
-            
+#         data2 = pd.read_csv('temp.csv',engine='python')   
             
 #         output4 = pd.merge(data1, data2,  
 #                 on='CountryName',  
 #                 how='outer') 
 #         # print(output4)
 #         output4.to_csv('2011data.csv',index=False)
-                    
+
+
+
+count = 0
+with open('2011data.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        headers = reader.fieldnames
+        trash = ["UN Population Division (Median Age) (2017)", 
+                "Estimated average age at marriage, women",
+                "Number of people employed in agriculture  (Herrendorf et al. data)",
+                "Tax Revenue (Piketty (2014))",
+                "Public Expenditure on Education (Tanzi & Schuktnecht (2000))",
+                "Income share held by highest 10%"]
+        headers = [ele for ele in headers if ele not in trash] 
+        for row in reader:
+            # ncol = len(next(reader))
+            # print(ncol)
+            temp = True
+            for i in range(len(headers)):
+                if row[headers[i]] == '':
+                    temp = False
+            if temp == True:
+                count += 1
+    
+print(count)
