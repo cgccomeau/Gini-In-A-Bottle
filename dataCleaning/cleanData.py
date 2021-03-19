@@ -52,6 +52,16 @@ import pandas as pd
 
 
 
+# rough count
+# "Tax Revenue (Piketty (2014)) only contains 4 countries
+# "Public Expenditure on Education (Tanzi & Schuktnecht (2000))" contains at most 13 countries at 1993
+# "Estimated average age at marriage, women" contains at most 85 countries at 2010
+# "Income share held by highest 10%" contains at most 80 countries at 2010
+# "Pupil-teacher ratio in primary education (headcount basis)" contains at most 188 countries at 2002
+# "UN Population Division (Median Age) (2017)" contains at most 241 countries at 2005, 2010
+# "Number of people employed in agriculture  (Herrendorf et al. data)" contains at most 217 countries at 2010
+
+
 count = 0
 with open('2011data.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
