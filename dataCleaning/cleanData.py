@@ -61,7 +61,8 @@ with open('2011data.csv', newline='') as csvfile:
                 "Number of people employed in agriculture  (Herrendorf et al. data)",
                 "Tax Revenue (Piketty (2014))",
                 "Public Expenditure on Education (Tanzi & Schuktnecht (2000))",
-                "Income share held by highest 10%"]
+                "Income share held by highest 10%",
+                "Pupil-teacher ratio in primary education (headcount basis)"]
         headers = [ele for ele in headers if ele not in trash] 
         for row in reader:
             # ncol = len(next(reader))
