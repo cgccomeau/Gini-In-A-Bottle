@@ -3,7 +3,7 @@ import os
 import pandas as pd 
 
 
-
+# clean gini file
 # with open('2011data.csv', 'w', newline='') as csvfile:
 
     # fieldnames = ['CountryName', 'GiniCoff', 'IncomePerPeerson', 'InvestmentShareOfGDP', 'TaxShareOfGDP']
@@ -24,7 +24,7 @@ import pandas as pd
     
 
 
-
+# clean files from our world in data
 # for filename in os.listdir('./rawSets'):
 #     f = open('./rawSets/' + filename,'r')
 #     reader = csv.DictReader(f)
@@ -62,26 +62,33 @@ import pandas as pd
 # "Number of people employed in agriculture  (Herrendorf et al. data)" contains at most 217 countries at 2010
 
 
-count = 0
-with open('2011data.csv', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        headers = reader.fieldnames
-        trash = ["UN Population Division (Median Age) (2017)", 
-                "Estimated average age at marriage, women",
-                "Number of people employed in agriculture  (Herrendorf et al. data)",
-                "Tax Revenue (Piketty (2014))",
-                "Public Expenditure on Education (Tanzi & Schuktnecht (2000))",
-                "Income share held by highest 10%",
-                "Pupil-teacher ratio in primary education (headcount basis)"]
-        headers = [ele for ele in headers if ele not in trash] 
-        for row in reader:
-            # ncol = len(next(reader))
-            # print(ncol)
-            temp = True
-            for i in range(len(headers)):
-                if row[headers[i]] == '':
-                    temp = False
-            if temp == True:
-                count += 1
+
+# count effective number of countries
+# result: 102
+# count = 0
+# with open('2011data.csv', newline='') as csvfile:
+#         reader = csv.DictReader(csvfile)
+#         headers = reader.fieldnames
+#         trash = ["UN Population Division (Median Age) (2017)", 
+#                 "Estimated average age at marriage, women",
+#                 "Number of people employed in agriculture  (Herrendorf et al. data)",
+#                 "Tax Revenue (Piketty (2014))",
+#                 "Public Expenditure on Education (Tanzi & Schuktnecht (2000))",
+#                 "Income share held by highest 10%",
+#                 "Pupil-teacher ratio in primary education (headcount basis)"]
+#         headers = [ele for ele in headers if ele not in trash] 
+#         for row in reader:
+#             # ncol = len(next(reader))
+#             # print(ncol)
+#             temp = True
+#             for i in range(len(headers)):
+#                 if row[headers[i]] == '':
+#                     temp = False
+#             if temp == True:
+#                 count += 1
     
-print(count)
+# print(count)
+
+
+
+# clean 2011
