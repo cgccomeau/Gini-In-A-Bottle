@@ -90,44 +90,43 @@ import pandas as pd
 # df = pd.read_csv('2011data.csv')
 # df.to_csv('cleaned2011data.csv')
 
-# lines = list()
-# with open('MultiYearData.csv', newline='') as csvfile:
-#     reader = csv.DictReader(csvfile)
-#     headers = reader.fieldnames
-#     trash = ['UN Population Division (Median Age) (2017)', 
-#             'Estimated average age at marriage, women',
-#             'Number of people employed in agriculture  (Herrendorf et al. data)',
-#             'Tax Revenue (Piketty (2014))',
-#             'Public Expenditure on Education (Tanzi & Schuktnecht (2000))',
-#             'Income share held by highest 10%',
-#             'Pupil-teacher ratio in primary education (headcount basis)']
-#     headers = [ele for ele in headers if ele not in trash] 
-#     with open('cleanedMultiYearData.csv', 'w') as writeFile:
-#         writer = csv.DictWriter(writeFile, reader.fieldnames)
-#         writer.writeheader()
-#         for row in reader:
+lines = list()
+with open('MultiYearData.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    headers = reader.fieldnames
+    trash = ['UN Population Division (Median Age) (2017)', 
+            'Estimated average age at marriage, women',
+            'Number of people employed in agriculture  (Herrendorf et al. data)',
+            'Tax Revenue (Piketty (2014))',
+            'Public Expenditure on Education (Tanzi & Schuktnecht (2000))',
+            'Income share held by highest 10%',
+            'Pupil-teacher ratio in primary education (headcount basis)']
+    headers = [ele for ele in headers if ele not in trash] 
+    with open('allFilledMultiYearData.csv', 'w') as writeFile:
+        writer = csv.DictWriter(writeFile, reader.fieldnames)
+        writer.writeheader()
+        for row in reader:
             
-#             temp = True
-#             for i in range(len(headers)):
-#                 if row[headers[i]] == '':
-#                     temp = False
-#             if temp == True:
-#                 # print(row)
-#                 # lines.append(row)
-#                 writer.writerow(row)
-#                 # writer.writerows({reader.fieldnames[i]:row[reader.fieldnames[i]] for i in range(len(reader.fieldnames))})
-# # print(lines)
+            temp = True
+            for i in range(len(headers)):
+                if row[headers[i]] == '':
+                    temp = False
+            if temp == True:
+                # print(row)
+                # lines.append(row)
+                writer.writerow(row)
+                # writer.writerows({reader.fieldnames[i]:row[reader.fieldnames[i]] for i in range(len(reader.fieldnames))})
+# print(lines)
 
     
 
 
-newdf = pd.read_csv('cleanedMultiYearData.csv')
+newdf = pd.read_csv('allFilledMultiYearData.csv')
 newdf.drop(['UN Population Division (Median Age) (2017)', 
     'Estimated average age at marriage, women',
     'Number of people employed in agriculture  (Herrendorf et al. data)',
     'Tax Revenue (Piketty (2014))',
     'Public Expenditure on Education (Tanzi & Schuktnecht (2000))',
-    'Income share held by highest 10%'],
-    # 'Pupil-teacher ratio in primary education (headcount basis)'],
-    axis=1,inplace=True) 
-newdf.to_csv('cleanedMultiYearData.csv')
+    'Income share held by highest 10%',
+    'Pupil-teacher ratio in primary education (headcount basis)'],axis=1,inplace=True) 
+newdf.to_csv('allFilledMultiYearData.csv')
