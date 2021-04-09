@@ -22,6 +22,19 @@ The goal of this study is to understand how different statistics indicating a co
 
 Before beginning any machine learning algorithms with all features, we wanted to visualize the data between each feature and see how well each individual feature did at predicting the Gini coefficient. In order to do so, we used Seaborn to run a 2-D linear regression between each feature and the Gini coefficient and visualize the results. The images below are those results, with its corresponding correlation coefficient and line of best fit attached.
 
+![agriculture](https://user-images.githubusercontent.com/46789718/114112586-aa107680-98aa-11eb-8ddc-35b52b98e736.png)
+![deaths](https://user-images.githubusercontent.com/46789718/114112588-ab41a380-98aa-11eb-9447-7350a1fb5481.png)
+![incomeperperson](https://user-images.githubusercontent.com/46789718/114112589-ab41a380-98aa-11eb-9aac-afd7181670be.png)
+![investmentshareofgdp](https://user-images.githubusercontent.com/46789718/114112590-ab41a380-98aa-11eb-87d0-f372aeb5bb87.png)
+![lifeexpectancy](https://user-images.githubusercontent.com/46789718/114112591-abda3a00-98aa-11eb-979d-d4c30aff947c.png)
+![popdensity](https://user-images.githubusercontent.com/46789718/114112592-abda3a00-98aa-11eb-9404-7e4e06d416be.png)
+![realgdppercapita](https://user-images.githubusercontent.com/46789718/114112593-abda3a00-98aa-11eb-9b3f-b2bc59c77156.png)
+![taxshareofgdp](https://user-images.githubusercontent.com/46789718/114112594-abda3a00-98aa-11eb-8cc4-320ad36fe1cd.png)
+![totalfertility](https://user-images.githubusercontent.com/46789718/114112595-abda3a00-98aa-11eb-9ae1-a474b3efe2cb.png)
+![unemployment](https://user-images.githubusercontent.com/46789718/114112596-ac72d080-98aa-11eb-84e1-5fcc37501552.png)
+![worldhappiness](https://user-images.githubusercontent.com/46789718/114112597-ac72d080-98aa-11eb-9d76-dfa785d7c11e.png)
+![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
+
 
 
 ## Unsupervised Methods and Results 
