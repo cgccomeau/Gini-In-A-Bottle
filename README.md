@@ -35,9 +35,11 @@ Before beginning any machine learning algorithms with all features, we wanted to
 ![worldhappiness](https://user-images.githubusercontent.com/46789718/114112597-ac72d080-98aa-11eb-9d76-dfa785d7c11e.png)
 
 * Observations:
+
 A couple things worth pointing out is that Life expectancy, Real GDP per capita, and Income per Person had the 3 strongest correlations, in that order (r = -0.372, -0.336, -0.315). On the other hand, population density, unemployment, and Investment share of GDP had the 3 weakest correlations, in that order (r = 0.0089, -0.0459, 0.0718).
 
-One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year! (Copy/paste year graph)
+One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year! 
+
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
 
