@@ -16,8 +16,9 @@ The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequ
 ##  Problem Statement
 The goal of this study is to understand how different statistics indicating a country's well-being can relate to or predict the country's income inequality, as measured by the Gini Coefficient. 
 
+## Data Collection
 
-## Unsupervised Methods 
+## Unsupervised Methods and Results 
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
@@ -39,7 +40,7 @@ Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get app
 
 
 
-## Supervised Methods 
+## Supervised Methods and Results 
 Our general idea is to develop a prediction model that would output our predicted Gini coefficient for a specific country in a specific year, given other parameters like happiness scores or mortality ratios. We would focus both on factors that are dependent on income, as well as those that are not directly dependent, and find correlations between the weights of these factors and the prediction accuracy.
 
 We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
