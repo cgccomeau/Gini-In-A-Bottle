@@ -60,7 +60,26 @@ Due to the limited data points available and the high dimension of data, we expe
 
 After using the pandas library to convert our CSV data into an operable dataframe, we realized that for the two supervised learning methods, we needed to split our data into a testing and training set. Since each row of our data can be uniquely represented by a tuple of the country and year, we realized if we did a random train/test split on the entire dataset, there is a chance that one year could be disproportionately placed in either the training or testing set. So to compensate, we first divided all our data by year, used sklearn to do a randomized 85/15% test/train split on each year, then concatenated all the individual test/train splits from each year back into its own single set.
 
+### Neural Networks
+
+One of the supervised learning methods we implemented was a neural network. We used the sklearn.neural_network.MLPRegressor class within the sci-kit learn library in Python in order to create this model. Before performing the regression, the x data was scaled to proportion to yield better results. After trying different combinations of parameters within the class, it became apparent that the success of the model depended greatly on which parameters were used. In order to take a more systematic approach, the following combinations of parameters were tested using a series of nested for-loops:
+alpha: [0.0001, 0.001, 0.01]
+activation functions: ["identity", "logistic", "tanh", "relu"]
+solver : ["lbfgs", "sgd"]
+hidden layers: [1, 2, 3]
+learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
+maximum iterations: 5000
+
+For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R^2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R^2 value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R^2 score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
+
+The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R^2, MAE, and MSE values after 5 iterations.
+
 ![화면 캡처 2021-04-08 203318](https://user-images.githubusercontent.com/44009995/114112113-ab8d6f00-98a9-11eb-987f-c97318b83a5b.png)
+
+R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
+
+![image](https://user-images.githubusercontent.com/44009995/114112212-eee7dd80-98a9-11eb-978b-fd1d19328c4f.png)
+
 
 
 ## Discussion
