@@ -78,8 +78,7 @@ The following is the first few rows of the table containing the different combin
 
 R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
 
-![image](https://user-images.githubusercontent.com/44009995/114112212-eee7dd80-98a9-11eb-978b-fd1d19328c4f.png)
-
+![화면 캡처 2021-04-08 203806](https://user-images.githubusercontent.com/44009995/114112433-66b60800-98aa-11eb-81ca-0d70f3d2f051.png)
 
 
 ## Discussion
