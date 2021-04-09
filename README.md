@@ -70,13 +70,13 @@ hidden layers: [1, 2, 3]
 learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
 maximum iterations: 5000
 
-For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R^2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R^2 value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R^2 score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
+For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- $R^2$ score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the $R^2$ value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher $R^2$ score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
 
-The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R^2, MAE, and MSE values after 5 iterations.
+The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average $R^2$, MAE, and MSE values after 5 iterations.
 
 ![화면 캡처 2021-04-08 203318](https://user-images.githubusercontent.com/44009995/114112113-ab8d6f00-98a9-11eb-987f-c97318b83a5b.png)
 
-R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
+$R^2$ was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the $R^2$ value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
 
 ![화면 캡처 2021-04-08 203806](https://user-images.githubusercontent.com/44009995/114112433-66b60800-98aa-11eb-81ca-0d70f3d2f051.png)
 
