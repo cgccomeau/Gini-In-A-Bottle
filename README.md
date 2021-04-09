@@ -126,7 +126,10 @@ R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.000
 
 
 ## Discussion
-Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)&#x00B3; and unexpected (i.e. happiness, COVID case count) factors.
+A significant challenge we encountered initially was acquiring sufficient data and cleaning available data. To avoid having empty cells in our dataset, we selected one year which had the most data entries available, but we decided 134 unique data entries was still not sufficient for machine learning methods using 12 features. Thus, we addressed this issue by expanding the dataset by using (country, year) tuples as keys instead of solely using country, stretching the dataset from 134 entries to 924. To further increase our dataset, we aim to look at incorporating data from other years as well and using feature imputation to fill in missing cells; however, there are concerns that there may be too much missing data for this to be successful.
+ 
+After running unsupervised methods (PCA, DBSCAN), and supervised methods (neural network, linear regression), we obtained relatively low confidence scores, as indicated by a silhouette coefficient of 0.316 (DBSCAN) and low correlation coefficients of about 0.5 for the neural network and about 0.2 for linear regression. In the future, we will have to focus on optimization of parameters as well as data refinement to get better results. With more conclusive results, we can state with more confidence the features that are more highly correlated to Gini coefficient prediction. 
+
 
 
 ## References
