@@ -35,11 +35,9 @@ Before beginning any machine learning algorithms with all features, we wanted to
 ![worldhappiness](https://user-images.githubusercontent.com/46789718/114112597-ac72d080-98aa-11eb-9d76-dfa785d7c11e.png)
 
 * Observations:
-
 A couple things worth pointing out is that Life expectancy, Real GDP per capita, and Income per Person had the 3 strongest correlations, in that order (r = -0.372, -0.336, -0.315). On the other hand, population density, unemployment, and Investment share of GDP had the 3 weakest correlations, in that order (r = 0.0089, -0.0459, 0.0718).
 
-One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year! 
-
+One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year! (Copy/paste year graph)
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
 
@@ -90,13 +88,13 @@ hidden layers: [1, 2, 3]
 learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
 maximum iterations: 5000
 
-For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R^2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R^2 value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R^2 score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
+For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R &#x00B2; score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R &#x00B2; value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R &#x00B2; score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
 
-The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R^2, MAE, and MSE values after 5 iterations.
+The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R &#x00B2;, MAE, and MSE values after 5 iterations.
 
 ![화면 캡처 2021-04-08 203318](https://user-images.githubusercontent.com/44009995/114112113-ab8d6f00-98a9-11eb-987f-c97318b83a5b.png)
 
-R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
+R &#x00B2; was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R &#x00B2; value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
 
 ![화면 캡처 2021-04-08 203806](https://user-images.githubusercontent.com/44009995/114112433-66b60800-98aa-11eb-81ca-0d70f3d2f051.png)
 
