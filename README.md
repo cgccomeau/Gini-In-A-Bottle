@@ -44,7 +44,6 @@ After experimenting the dataset on the year 2011, which has the most data entrie
 One possible drawback from this approach is that we would have inconsistent amounts of data values for each country. I.e. one country might have all years from 2006 to 2016, while another might only have year 2011 and 2012. 
 
 
-
 #### Data Visualization:
 
 Before beginning any machine learning algorithms with all features, we wanted to visualize the data between each feature and see how well each individual feature did at predicting the Gini coefficient. In order to do so, we used Seaborn to run a 2-D linear regression between each feature and the Gini coefficient and visualize the results. The images below are those results, with its corresponding correlation coefficient and line of best fit attached.
@@ -67,7 +66,7 @@ One cool thing to observe is that over our 11 year observation period, income in
 
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
-
+After visualizing our data, it should be easier to see that not all of our features are linearly correlated that well (if at all), thus as a group prediction, we are not expecting terribly high results from applying Linear Regression as is.
 
 ## Unsupervised Methods and Results 
 
@@ -109,11 +108,19 @@ We would also use multiple supervised learning models and elaborate on their per
 * K-Nearest Neighbors
 * Neural Networks
 
-Due to the limited data points available and the high dimension of data, we expect the K-Nearest Neighbors to perform the most poorly. We expect Linear Regression to perform the best because most of the parameters we will be using would likely be closely related to the Gini coefficient.
+Due to the limited data points available and the high dimension of data, we expect the K-Nearest Neighbors to perform the most poorly. We expect Neural Networks to perform the best because its non-linear activation function will be able to capture the non-linear relationship between the features and Gini coefficient.
 
 * Test/Train Split:
 
 After using the pandas library to convert our CSV data into an operable dataframe, we realized that for the two supervised learning methods, we needed to split our data into a testing and training set. Since each row of our data can be uniquely represented by a tuple of the country and year, we realized if we did a random train/test split on the entire dataset, there is a chance that one year could be disproportionately placed in either the training or testing set. So to compensate, we first divided all our data by year, used sklearn to do a randomized 85/15% test/train split on each year, then concatenated all the individual test/train splits from each year back into its own single set.
+
+### Linear Regression
+
+Now that we’ve split and visualized our data, we are ready to run Linear Regression on all features! Using sklearn’s LinearRegression class, we are able to fit our model with the training data, test it against the test data, and create all the accompanying analysis. Here are all the coefficients from our model’s calculated line of best fit. Note the scales of each variable are different (such as a change in 10 doesn’t mean much for Income per Person ($10), however it is a massive difference for Average Life Expectancy (10 years)), so not much insight can be intuitively gleaned from the coefficients.
+
+![Screenshot 2021-04-08 205720](https://user-images.githubusercontent.com/46789718/114113630-1db38300-98ad-11eb-8a9b-699f3ec82ef3.jpg)
+
+From before, since our features were not linearly related very well to the Gini Coefficient, so as expected, our model’s correlation coefficient values aren’t the highest, clocking in at 0.231 for training and 0.22 for testing. The nice thing about the testing and training values being consistent is that overfitting has not occurred here! As a result, we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
 
 ### Neural Networks
 
