@@ -142,7 +142,7 @@ R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.000
 
 ![image](https://user-images.githubusercontent.com/44009995/114112212-eee7dd80-98a9-11eb-978b-fd1d19328c4f.png)
 
-## K-Nearest Neighbors
+### K-Nearest Neighbors
 
 We are currently working on how to run and fit this algorithm onto our data.
 
