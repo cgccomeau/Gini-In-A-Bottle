@@ -22,29 +22,15 @@ The goal of this study is to understand how different statistics indicating a co
 
 Before beginning any machine learning algorithms with all features, we wanted to visualize the data between each feature and see how well each individual feature did at predicting the Gini coefficient. In order to do so, we used Seaborn to run a 2-D linear regression between each feature and the Gini coefficient and visualize the results. The images below are those results, with its corresponding correlation coefficient and line of best fit attached.
 
-![agriculture](https://user-images.githubusercontent.com/46789718/114112586-aa107680-98aa-11eb-8ddc-35b52b98e736.png)
-![deaths](https://user-images.githubusercontent.com/46789718/114112588-ab41a380-98aa-11eb-9447-7350a1fb5481.png)
-![incomeperperson](https://user-images.githubusercontent.com/46789718/114112589-ab41a380-98aa-11eb-9aac-afd7181670be.png)
-![investmentshareofgdp](https://user-images.githubusercontent.com/46789718/114112590-ab41a380-98aa-11eb-87d0-f372aeb5bb87.png)
-![lifeexpectancy](https://user-images.githubusercontent.com/46789718/114112591-abda3a00-98aa-11eb-979d-d4c30aff947c.png)
-![popdensity](https://user-images.githubusercontent.com/46789718/114112592-abda3a00-98aa-11eb-9404-7e4e06d416be.png)
-![realgdppercapita](https://user-images.githubusercontent.com/46789718/114112593-abda3a00-98aa-11eb-9b3f-b2bc59c77156.png)
-![taxshareofgdp](https://user-images.githubusercontent.com/46789718/114112594-abda3a00-98aa-11eb-8cc4-320ad36fe1cd.png)
-![totalfertility](https://user-images.githubusercontent.com/46789718/114112595-abda3a00-98aa-11eb-9ae1-a474b3efe2cb.png)
-![unemployment](https://user-images.githubusercontent.com/46789718/114112596-ac72d080-98aa-11eb-84e1-5fcc37501552.png)
-![worldhappiness](https://user-images.githubusercontent.com/46789718/114112597-ac72d080-98aa-11eb-9d76-dfa785d7c11e.png)
-
-* Observations:
-A couple things worth pointing out is that Life expectancy, Real GDP per capita, and Income per Person had the 3 strongest correlations, in that order (r = -0.372, -0.336, -0.315). On the other hand, population density, unemployment, and Investment share of GDP had the 3 weakest correlations, in that order (r = 0.0089, -0.0459, 0.0718).
-
-One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year! (Copy/paste year graph)
-![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
-
 
 
 ## Unsupervised Methods and Results 
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
+
+* PCA for Dimensionality Reduction:
+
+When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data.
 
 * Clustering: 
 
@@ -61,6 +47,7 @@ Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get app
 
 * Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
 
+![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
 
 
 
@@ -88,15 +75,16 @@ hidden layers: [1, 2, 3]
 learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
 maximum iterations: 5000
 
-For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R &#x00B2; score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R &#x00B2; value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R &#x00B2; score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
+For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R^2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R^2 value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R^2 score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
 
-The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R &#x00B2;, MAE, and MSE values after 5 iterations.
+The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R^2, MAE, and MSE values after 5 iterations.
 
 ![화면 캡처 2021-04-08 203318](https://user-images.githubusercontent.com/44009995/114112113-ab8d6f00-98a9-11eb-987f-c97318b83a5b.png)
 
-R &#x00B2; was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R &#x00B2; value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
+R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
 
-![화면 캡처 2021-04-08 203806](https://user-images.githubusercontent.com/44009995/114112433-66b60800-98aa-11eb-81ca-0d70f3d2f051.png)
+![image](https://user-images.githubusercontent.com/44009995/114112212-eee7dd80-98a9-11eb-978b-fd1d19328c4f.png)
+
 
 
 ## Discussion
