@@ -21,7 +21,14 @@ The goal of this study is to understand how different statistics indicating a co
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
-* Clustering: We can use clustering algorithms (K-Means, GMM, Hierarchical or DBSCAN), to group together countries with similar features. 
+* Clustering: 
+After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
+
+First, the optimal number of epsilon was determined by calculating the nearest n points for each point and plotting to see where the greatest change occurs (elbow method). Epsilon was determined to be approximately 5000, as visualized in the graph below. 
+
+Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get approximately 21 clusters, 29 noise points, and a silhouette coefficient (SC) of 0.316. This SC is not great, as it implies the clusters are not very dense nor well-separated. While DBSCAN is great at handling noise and clusters of different shapes and sizes, it is extremely sensitive to hyperparameters. For the next report, we may improve clustering results by further fine tuning the epsilon and min samples parameters.
+
+
 * Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
 
 We believe dimensionality reduction will reduce complexity and improve the results of clustering. After running clustering algorithms, we might expect countries in organizations like the EU or OPEC to form clusters. 
