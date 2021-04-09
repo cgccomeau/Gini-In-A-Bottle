@@ -73,7 +73,7 @@ One cool thing to observe is that over our 11 year observation period, income in
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
-### PCA for Dimensionality Reduction:
+### PCA for Dimensionality Reduction
 
 Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data.
 
@@ -85,7 +85,7 @@ It’s clear to see that the first two components account for almost all the var
 
 ![pca](https://user-images.githubusercontent.com/47800990/114113283-44bd8500-98ac-11eb-9b63-9b4e27190d68.png)
 
-### Clustering: 
+### Clustering
 
 After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
 
