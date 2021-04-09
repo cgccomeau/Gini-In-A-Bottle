@@ -33,6 +33,11 @@ Before beginning any machine learning algorithms with all features, we wanted to
 ![totalfertility](https://user-images.githubusercontent.com/46789718/114112595-abda3a00-98aa-11eb-9ae1-a474b3efe2cb.png)
 ![unemployment](https://user-images.githubusercontent.com/46789718/114112596-ac72d080-98aa-11eb-84e1-5fcc37501552.png)
 ![worldhappiness](https://user-images.githubusercontent.com/46789718/114112597-ac72d080-98aa-11eb-9d76-dfa785d7c11e.png)
+
+A couple things worth pointing out is that Life expectancy, Real GDP per capita, and Income per Person had the 3 strongest correlations, in that order (r = -0.372, -0.336, -0.315). On the other hand, population density, unemployment, and Investment share of GDP had the 3 weakest correlations, in that order (r = 0.0089, -0.0459, 0.0718).
+
+One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year!
+
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
 
@@ -49,9 +54,7 @@ When running PCA for dimensionality reduction the first step was to run PCA reta
 
 ![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
 
-It’s clear to see that the first two components account for almost all the variance in our data. In fact, the first component accounted for 78.6% of our variance while the first two components contained 99.6% of our variance. Including more principal components beyond that point would give us very little additional information but would increase complexity of our models. Therefore, we chose to transform our data onto the first two components. Below is an image of our original 900 data points projected onto our two principal axes.
-
-![pca](https://user-images.githubusercontent.com/47800990/114113283-44bd8500-98ac-11eb-9b63-9b4e27190d68.png)
+It’s clear to see that the first two components account for almost all the variance in our data. In fact, the first component accounted for 78.6% of our variance while the first two components contained 99.6% of our variance. Including more principal components beyond that point would give us very little additional information but would increase complexity of our models. Therefore, we chose to transform our data onto the first two components. 
 
 * Clustering: 
 
