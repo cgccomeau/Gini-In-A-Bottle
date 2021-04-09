@@ -40,7 +40,7 @@ One cool thing to observe is that over our 11 year observation period, income in
 
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
-
+After visualizing our data, it should be easier to see that not all of our features are linearly correlated that well (if at all), thus as a group prediction, we are not expecting terribly high results from applying Linear Regression as is.
 
 ## Unsupervised Methods and Results 
 
@@ -48,9 +48,9 @@ Using different economic and demographics data as our features we can first expl
 
 * PCA for Dimensionality Reduction:
 
-Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data.
+When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data.
 
-When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data. 
+* Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
 
 ![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
 
@@ -85,6 +85,12 @@ Due to the limited data points available and the high dimension of data, we expe
 * Test/Train Split:
 
 After using the pandas library to convert our CSV data into an operable dataframe, we realized that for the two supervised learning methods, we needed to split our data into a testing and training set. Since each row of our data can be uniquely represented by a tuple of the country and year, we realized if we did a random train/test split on the entire dataset, there is a chance that one year could be disproportionately placed in either the training or testing set. So to compensate, we first divided all our data by year, used sklearn to do a randomized 85/15% test/train split on each year, then concatenated all the individual test/train splits from each year back into its own single set.
+
+### Linear Regression
+
+Now that we’ve split and visualized our data, we are ready to run Linear Regression on all features! Using sklearn’s LinearRegression class, we are able to fit our model with the training data, test it against the test data, and create all the accompanying analysis. Here are all the coefficients from our model’s calculated line of best fit. Note the scales of each variable are different (such as a change in 10 doesn’t mean much for Income per Person ($10), however it is a massive difference for Average Life Expectancy (10 years)), so not much insight can be intuitively gleaned from the coefficients.
+
+As expected, our model’s correlation coefficient values aren’t the highest, clocking in at 0.231 for training and 0.22 for testing. The nice thing about the testing and training values being consistent is that overfitting has not occurred here! As a result, we must now turn to more sophisticated machine learning algorithms than linear regression to yield better prediction results.
 
 ### Neural Networks
 
