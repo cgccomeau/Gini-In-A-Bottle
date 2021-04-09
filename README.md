@@ -36,7 +36,6 @@ Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get app
 
 * Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
 
-We believe dimensionality reduction will reduce complexity and improve the results of clustering. After running clustering algorithms, we might expect countries in organizations like the EU or OPEC to form clusters. 
 
 
 
