@@ -18,16 +18,28 @@ The goal of this study is to understand how different statistics indicating a co
 
 ## Data Collection
 
-Our data for Gini coefficients comes from gapminder.org, “an independent Swedish foundation with no political, religious or economic affiliations”. It consists of 138 unique countries, and data entries for each country ranging from year 2006 to 2016. Its corresponding features aside from the Gini index include democracy index, GDP per capita, percentage of GDP in investment sector, and percentage of GDP in taxation sector. However, this data only covers the basic statistics of the country on the economics side. We wanted to explore more relations of the Gini index in each country with other factors such as education, population, demographics, etc. Thus, we combined this dataset with other datasets from ourworldindata.org, an organization which provides “research and data to make progress against the world’s largest problems”, compiling data from many sources as specialized institutes (like the Peace Research Institute Oslo (PRIO)), research articles( like ’Inequality Among World Citizens: 1820-1992’ in the American Economic Review), and international institutions or statistical agencies (like the OECD, the World Bank, and UN institutions). We gathered data that most closely delineates the countries we are investigating, extending the features collected and examined.
+Our data for Gini coefficients comes from gapminder.org, “an independent Swedish foundation with no political, religious or economic affiliations.” It consists of 138 unique countries, and data entries for each country ranging from year 2006 to 2016. Its corresponding features aside from the Gini index include democracy index, GDP per capita, percentage of GDP in investment sector, and percentage of GDP in taxation sector. However, this data only covers the basic statistics of the country on the economics side. We wanted to explore more relations of the Gini index in each country with other factors such as education, population, demographics, etc. Thus, we combined this dataset with other datasets from ourworldindata.org, an organization which provides “research and data to make progress against the world’s largest problems”, compiling data from many sources as specialized institutes (like the Peace Research Institute Oslo (PRIO)), research articles( like ’Inequality Among World Citizens: 1820-1992’ in the American Economic Review), and international institutions or statistical agencies (like the OECD, the World Bank, and UN institutions). We gathered data that most closely delineates the countries we are investigating, extending the features collected and examined.
 
-We gathered as many features as we could for the 138 unique countries from gapminder.org. However, not all countries had data available for basic features, such as IncomePerPerson, so we needed to remove 4 countries from the list. Our finalized list of features include the following:
- IncomePerPerson, TaxShareOfGDP, Total fertility (live births per woman), DeathsFromSelfHarm, Life satisfaction in Cantril Ladder (World Happiness Report), LifeExpectancy, Unemployment, total (% of total labor force), Pupil-teacher ratio in primary education, Real GDP per capita in 2011US$, multiple benchmarks, Population density (people per sq. km of land area), Agriculture, value added per worker. 
+We gathered as many features as we could for the 138 unique countries from gapminder.org. However, not all countries had data available for basic features, such as Income Per Person, so we needed to remove 4 countries from the list. Our finalized list of features includes the following:
+
+* Income Per Person
+* Tax Share Of GDP
+* Investment Share of GDP
+* Total fertility (live births per woman)
+* Deaths From Self Harm (%)
+* Life satisfaction in Cantril Ladder (World Happiness Report)
+* Life Expectancy
+* Unemployment Total (% of total labor force)
+* Pupil-teacher ratio in primary education
+* Real GDP per capita in 2011US$
+* Population density (people per sq. km of land area)
+* Agriculture value added per worker. 
  
 To keep our dataset consistent, we normalized all numbers indicating prices or numbers to 2010 US Dollars. 
 
 Among these, the “Pupil-teacher ratio in primary education” had empty values for 319 data entries. We wanted to use a feature input method to fill in the holes with guesses based on data collected for other countries and years. The result of this method will be compared with another dataset where we removed the feature “Pupil-teacher ratio in primary education”, so that all data entries in dataset2 are filled. 
 
-After experimenting the dataset on the year 2011, which has the most data entries available, using our models, we decided 134 unique data entries is not sufficient for machine learning methods using 12 features. We expand the dataset by using (country, year) tuples as keys instead of solely using country. This approach stretches the dataset from 134 entries to 924, potentially increasing the statistical soundness of the results we provide.
+After experimenting the dataset on the year 2011, which has the most data entries available, using our models, we decided that 134 unique data entries was not sufficient for machine learning methods using 12 features. We expanded the dataset by using (country, year) tuples as keys instead of solely using country. This approach stretched the dataset from 134 entries to 924, potentially increasing the statistical soundness of the results we provide.
 
 One possible drawback from this approach is that we would have inconsistent amounts of data values for each country. I.e. one country might have all years from 2006 to 2016, while another might only have year 2011 and 2012. 
 
@@ -51,7 +63,7 @@ Before beginning any machine learning algorithms with all features, we wanted to
 
 A couple things worth pointing out is that Life expectancy, Real GDP per capita, and Income per Person had the 3 strongest correlations, in that order (r = -0.372, -0.336, -0.315). On the other hand, population density, unemployment, and Investment share of GDP had the 3 weakest correlations, in that order (r = 0.0089, -0.0459, 0.0718).
 
-One cool thing to observe is that over our 11 year observation period, income inequality has actually been going down at about a rate of 0.215 points per year!
+One cool thing to observe is that over our 11 year observation period, income inequality has been decreasing at a rate of approximately 0.215 points per year!
 
 ![year](https://user-images.githubusercontent.com/46789718/114112599-ac72d080-98aa-11eb-98c2-4dd0accf7b47.png)
 
@@ -61,7 +73,7 @@ One cool thing to observe is that over our 11 year observation period, income in
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
-* PCA for Dimensionality Reduction:
+### PCA for Dimensionality Reduction:
 
 Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data.
 
@@ -73,7 +85,7 @@ It’s clear to see that the first two components account for almost all the var
 
 ![pca](https://user-images.githubusercontent.com/47800990/114113283-44bd8500-98ac-11eb-9b63-9b4e27190d68.png)
 
-* Clustering: 
+### Clustering: 
 
 After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
 
@@ -126,10 +138,7 @@ R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.000
 
 
 ## Discussion
-A significant challenge we encountered initially was acquiring sufficient data and cleaning available data. To avoid having empty cells in our dataset, we selected one year which had the most data entries available, but we decided 134 unique data entries was still not sufficient for machine learning methods using 12 features. Thus, we addressed this issue by expanding the dataset by using (country, year) tuples as keys instead of solely using country, stretching the dataset from 134 entries to 924. To further increase our dataset, we aim to look at incorporating data from other years as well and using feature imputation to fill in missing cells; however, there are concerns that there may be too much missing data for this to be successful.
- 
-After running unsupervised methods (PCA, DBSCAN), and supervised methods (neural network, linear regression), we obtained relatively low confidence scores, as indicated by a silhouette coefficient of 0.316 (DBSCAN) and low correlation coefficients of about 0.5 for the neural network and about 0.2 for linear regression. In the future, we will have to focus on optimization of parameters as well as data refinement to get better results. With more conclusive results, we can state with more confidence the features that are more highly correlated to Gini coefficient prediction. 
-
+Challenges we may encounter include acquiring sufficient data as well as successfully identifying the best features in the datasets. We hope to address the former concern by extrapolating when necessary and taking a time plot of countries’ data over a 10-30 year period to maximize data input; for the latter issue, we plan on delving into methods like SKLEARN python and PCA for dimension reduction. The conclusions of our research could have implications for predictions of income equality from both expected (i.e. legislative influence, economic freedom)&#x00B3; and unexpected (i.e. happiness, COVID case count) factors.
 
 
 ## References
