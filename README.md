@@ -32,6 +32,12 @@ Using different economic and demographics data as our features we can first expl
 
 When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data.
 
+* Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
+
+![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
+
+It’s clear to see that the first two components account for almost all the variance in our data. In fact, the first component accounted for 78.6% of our variance while the first two components contained 99.6% of our variance. Including more principal components beyond that point would give us very little additional information but would increase complexity of our models. Therefore, we chose to transform our data onto the first two components. 
+
 * Clustering: 
 
 After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
@@ -45,9 +51,6 @@ Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get app
 <img width="495" alt="Screen Shot 2021-04-08 at 8 16 49 PM" src="https://user-images.githubusercontent.com/66150928/114111231-826bdf00-98a7-11eb-8334-d573b428a262.png">
 
 
-* Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
-
-![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
 
 
 
