@@ -18,17 +18,7 @@ The goal of this study is to understand how different statistics indicating a co
 
 ## Data Collection
 
-Our data for Gini coefficients comes from gapminder.org, “an independent Swedish foundation with no political, religious or economic affiliations”. It consists of 138 unique countries, and data entries for each country ranging from year 2006 to 2016. Its corresponding features aside from the Gini index include democracy index, GDP per capita, percentage of GDP in investment sector, and percentage of GDP in taxation sector. However, this data only covers the basic statistics of the country on the economics side. We wanted to explore more relations of the Gini index in each country with other factors such as education, population, demographics, etc. Thus, we combined this dataset with other datasets from ourworldindata.org, an organization which provides “research and data to make progress against the world’s largest problems.”, compiling data from many sources as specialized institutes (like the Peace Research Institute Oslo (PRIO)), research articles( like ’Inequality Among World Citizens: 1820-1992’ in the American Economic Review), and international institutions or statistical agencies (like the OECD, the World Bank, and UN institutions). We gathered data that most closely delineates the countries we are investigating, extending the features collected and examined.
-We gathered as many features as we could for the 138 unique countries from gapminder.org. However, not all countries had data available for basic features, such as IncomePerPerson, so we needed to remove 4 countries from the list. Our finalized list of features include the following:
- IncomePerPerson, TaxShareOfGDP, Total fertility (live births per woman), DeathsFromSelfHarm, Life satisfaction in Cantril Ladder (World Happiness Report), LifeExpectancy, Unemployment, total (% of total labor force), Pupil-teacher ratio in primary education, Real GDP per capita in 2011US$, multiple benchmarks, Population density (people per sq. km of land area), Agriculture, value added per worker. 
-To keep our dataset consistent, we normalized all numbers indicating prices or numbers to 2010 US Dollars. 
-Among these, the “Pupil-teacher ratio in primary education” had empty values for 319 data entries. We wanted to use a feature input method to fill in the holes with guesses based on data collected for other countries and years. The result of this method will be compared with another dataset where we removed the feature “Pupil-teacher ratio in primary education”, so that all data entries in dataset2 are filled. 
-After experimenting the dataset on the year 2011, which has the most data entries available, using our models, we decided 134 unique data entries is not sufficient for machine learning methods using 12 features. We expand the dataset by using (country, year) tuples as keys instead of solely using country. This approach stretches the dataset from 134 entries to 924, potentially increasing the statistical soundness of the results we provide.
-One possible drawback from this approach is that we would have inconsistent amounts of data values for each country. I.e. one country might have all years from 2006 to 2016, while another might only have year 2011 and 2012. 
-
-
-
-#### Data Visualization:
+* Data Visualization:
 
 Before beginning any machine learning algorithms with all features, we wanted to visualize the data between each feature and see how well each individual feature did at predicting the Gini coefficient. In order to do so, we used Seaborn to run a 2-D linear regression between each feature and the Gini coefficient and visualize the results. The images below are those results, with its corresponding correlation coefficient and line of best fit attached.
 
@@ -58,13 +48,15 @@ Using different economic and demographics data as our features we can first expl
 
 * PCA for Dimensionality Reduction:
 
-When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data.
+Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data.
 
-* Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
+When running PCA for dimensionality reduction the first step was to run PCA retaining our original number of features (11). This allowed us to see how much each of our new principal components contributed to the explained variance of our data. 
 
 ![variance](https://user-images.githubusercontent.com/47800990/114112812-260abe80-98ab-11eb-8317-c0e1792cc024.png)
 
-It’s clear to see that the first two components account for almost all the variance in our data. In fact, the first component accounted for 78.6% of our variance while the first two components contained 99.6% of our variance. Including more principal components beyond that point would give us very little additional information but would increase complexity of our models. Therefore, we chose to transform our data onto the first two components. 
+It’s clear to see that the first two components account for almost all the variance in our data. In fact, the first component accounted for 78.6% of our variance while the first two components contained 99.6% of our variance. Including more principal components beyond that point would give us very little additional information but would increase complexity of our models. Therefore, we chose to transform our data onto the first two components. Below is our original 900 data points projected onto our new principal axes. 
+
+![pca](https://user-images.githubusercontent.com/47800990/114113283-44bd8500-98ac-11eb-9b63-9b4e27190d68.png)
 
 * Clustering: 
 
@@ -99,22 +91,22 @@ After using the pandas library to convert our CSV data into an operable datafram
 ### Neural Networks
 
 One of the supervised learning methods we implemented was a neural network. We used the sklearn.neural_network.MLPRegressor class within the sci-kit learn library in Python in order to create this model. Before performing the regression, the x data was scaled to proportion to yield better results. After trying different combinations of parameters within the class, it became apparent that the success of the model depended greatly on which parameters were used. In order to take a more systematic approach, the following combinations of parameters were tested using a series of nested for-loops:
-* alpha: [0.0001, 0.001, 0.01]
-* activation functions: ["identity", "logistic", "tanh", "relu"]
-* solver : ["lbfgs", "sgd"]
-* hidden layers: [1, 2, 3]
-* learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
-* maximum iterations: 5000
+alpha: [0.0001, 0.001, 0.01]
+activation functions: ["identity", "logistic", "tanh", "relu"]
+solver : ["lbfgs", "sgd"]
+hidden layers: [1, 2, 3]
+learning rates: ["constant", "invscaling", "adaptive"] when solver = "sgd"
+maximum iterations: 5000
 
-For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R&#x00B2; score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R&#x00B2; value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R&#x00B2; score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
+For each iteration, we used three different metrics to evaluate whether the model created yielded good results -- R^2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE). Though it is easiest to identify success solely based on the R^2 value, it has a tendency to appear higher when there are more parameters. In the context of the problem, this would mean iterations in which models had more hidden layers would tend to have a higher R^2 score. To mitigate this fault, we measured the MAE and MSE and found the parameters where the values of these metrics were minimized. 
 
-The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R&#x00B2;, MAE, and MSE values after 5 iterations.
+The following is the first few rows of the table containing the different combination of parameters used at each iteration and their average R^2, MAE, and MSE values after 5 iterations.
 
 ![화면 캡처 2021-04-08 203318](https://user-images.githubusercontent.com/44009995/114112113-ab8d6f00-98a9-11eb-987f-c97318b83a5b.png)
 
-R&#x00B2; was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R&#x00B2; value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
+R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- the R^2 value was 0.485195, the mean absolute error was 4.34889, and the mean squared error was 36.0523
 
-![화면 캡처 2021-04-08 203806](https://user-images.githubusercontent.com/44009995/114113461-a7168580-98ac-11eb-8185-0a28072adc60.png)
+![image](https://user-images.githubusercontent.com/44009995/114112212-eee7dd80-98a9-11eb-978b-fd1d19328c4f.png)
 
 
 
