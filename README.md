@@ -27,11 +27,11 @@ After PCA, we used Density-based spatial clustering of applications with noise (
 
 First, the optimal number of epsilon was determined by calculating the nearest n points for each point and plotting to see where the greatest change occurs (elbow method). Epsilon was determined to be approximately 5000, as visualized in the graph below. 
 
-https://github.com/cgccomeau/Gini-In-A-Bottle/issues/1#issue-854035300
+<img width="544" alt="Screen Shot 2021-04-08 at 8 16 43 PM" src="https://user-images.githubusercontent.com/66150928/114111211-7253ff80-98a7-11eb-9b15-212238fdf457.png">
 
 Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get approximately 21 clusters, 29 noise points, and a silhouette coefficient (SC) of 0.316. This SC is not great, as it implies the clusters are not very dense nor well-separated. While DBSCAN is great at handling noise and clusters of different shapes and sizes, it is extremely sensitive to hyperparameters. For the next report, we may improve clustering results by further fine tuning the epsilon and min samples parameters.
 
-https://github.com/cgccomeau/Gini-In-A-Bottle/issues/2#issue-854035450
+<img width="495" alt="Screen Shot 2021-04-08 at 8 16 49 PM" src="https://user-images.githubusercontent.com/66150928/114111231-826bdf00-98a7-11eb-8334-d573b428a262.png">
 
 
 * Dimensionality Reduction: Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data. 
