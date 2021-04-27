@@ -104,10 +104,9 @@ Our general idea is to develop a prediction model that would output our predicte
 
 We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
 * Linear Regression
-* K-Nearest Neighbors
 * Neural Networks
 
-Due to the limited data points available and the high dimension of data, we expect the K-Nearest Neighbors to perform the most poorly. We expect Neural Networks to perform the best because its non-linear activation function will be able to capture the non-linear relationship between the features and Gini coefficient.
+Due to the non-linear relationship between the features and Gini Coefficient, we expect Linear Regression to perform the most poorly. We expect Neural Networks to perform the best because its non-linear activation function will be able to capture the non-linear relationship between the features and Gini coefficient. We will also run each model twice -- once on the original dataset and once on the PCA transformed set. We are expecting that the dimensionality reduction due to PCA will make the PCA transformed data to have higher results.
 
 * Test/Train Split:
 
@@ -119,7 +118,11 @@ Now that we’ve split and visualized our data, we are ready to run Linear Regre
 
 ![Screenshot 2021-04-08 205720](https://user-images.githubusercontent.com/46789718/114113630-1db38300-98ad-11eb-8a9b-699f3ec82ef3.jpg)
 
-From before, since our features were not linearly related very well to the Gini Coefficient, so as expected, our model’s correlation coefficient values aren’t the highest, clocking in at 0.231 for training and 0.22 for testing. The nice thing about the testing and training values being consistent is that overfitting has not occurred here! As a result, we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
+From before, since our features were not linearly related very well to the Gini Coefficient, so as expected, our model’s correlation coefficient values aren’t the highest, clocking in at 0.231 for training and 0.22 for testing.
+
+Further, we ran Linear Regression again but on the PCA data. Contrary to expectations, the results were actually worse.
+
+The nice thing about the testing and training values being consistent is that overfitting has not occurred here! As a result, we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
 
 ### Neural Networks
 
@@ -146,11 +149,6 @@ Further, we tested the results of the Neural Network algorithm with the data aft
 ![화면 캡처 2021-04-26 205953](https://user-images.githubusercontent.com/44009995/116169284-669f7000-a6d2-11eb-807d-594f6873f02c.png)
 
 We speculate that the PCA transformed data performed inferior to the original data because the inner workings of the Neural Network algorithm somehow conflicted with how PCA transformed the original data. However, it was interesting to find that the same parameters worked the best in both datasets.
-
-### K-Nearest Neighbors
-
-We are currently working on how to run and fit this algorithm onto our data.
-
 
 ## Discussion
 
