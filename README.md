@@ -122,7 +122,11 @@ From before, since our features were not linearly related very well to the Gini 
 
 Further, we ran Linear Regression again but on the PCA data. Contrary to expectations, the results were actually worse.
 
-The nice thing about the testing and training values being consistent is that overfitting has not occurred here! As a result, we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
+![linregpostpca](https://user-images.githubusercontent.com/46789718/116278788-d7876c00-a754-11eb-9de8-93b111a429c9.jpg)
+
+The correlation coefficient value dropped about 0.14 points to 0.096 for training and dropped 0.057 points to 0.163 for testing.
+
+The nice thing about the testing and training values being consistently low is that overfitting has not occurred here! As a result, we conclude that the features in our dataset and the Gini Coefficient are not strongly linearly correlated and we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
 
 ### Neural Networks
 
