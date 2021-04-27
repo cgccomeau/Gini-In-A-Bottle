@@ -158,11 +158,13 @@ We speculate that the PCA transformed data performed inferior to the original da
 
 A significant challenge we encountered initially was acquiring sufficient data and cleaning available data. To avoid having empty cells in our dataset, we selected one year which had the most data entries available, but we decided 134 unique data entries was still not sufficient for machine learning methods using 12 features. Thus, we addressed this issue by expanding the dataset by using (country, year) tuples as keys instead of solely using country, stretching the dataset from 134 entries to 924. To further increase our dataset, we aim to look at incorporating data from other years as well and using feature imputation to fill in missing cells; however, there are concerns that there may be too much missing data for this to be successful.
  
+From the data visualization and linear regression, it is quite clear that our dataset features and Gini Coefficient are not strongly linearly correlated, therefore further analysis into this problem will require an algorithm with a strong non-linear component to adequately capture this true relationship.
+ 
 After running unsupervised methods (PCA, DBSCAN), and supervised methods (neural network, linear regression), we obtained relatively low confidence scores, as indicated by a silhouette coefficient of 0.302 (DBSCAN) and low correlation coefficients of about 0.5 for the neural network and about 0.2 for linear regression. In the future, we will have to focus on optimization of parameters as well as data refinement to get better results. With more conclusive results, we can state with more confidence the features that are more highly correlated to Gini coefficient prediction. 
 
 ## Conclusions
 
-When predicting the Gini coefficient for countries around the world, the most important features we determined were income per person, agriculture value added per worker, and real GDP per capita. Countries of similar affluence and geographical locations tended to form clusters, indicating similar trends of Gini coefficient prediction. With the ever-growing abundance of data, we envision machine learning to become an even powerful tool to predict economic trends across the globe. 
+When predicting the Gini coefficient for countries around the world, the most important features we determined were income per person, agriculture value added per worker, and real GDP per capita. Countries of similar affluence and geographical locations tended to form clusters, indicating similar trends of Gini coefficient prediction. In reality, the causes of income inequality is a complex political and socio-economic issue that relies on much more than just 12 features, thus in order to further explore this question, future work should account for a larger range of features that will increase the computational complexity of such a project. However, with the ever-growing abundance of data, we envision machine learning to become an even powerful tool to predict economic trends such as income inequality across the globe. 
 
 
 
@@ -188,8 +190,4 @@ These literature reviews are important because while the Gini Coefficient provid
 ### Expected Results from Supervised Methods
 
 * Linear Regression: attempt to find a direct relationship between these parameters and the Gini coefficient. However, this would not be able to capture complex or non-linear relationships 
-* K-Nearest Neighbors: attempt to find similarities between instances using measures such as Euclidean distance and Hamming distance. However, this is extremely expensive and might perform poorly with a large number of parameters and not enough instances.
 * Neural Networks: attempts to capture complex relationships without extensive effort on feature engineering. However, it might be prone to overfitting, especially since our dataset is small.
-
-
-
