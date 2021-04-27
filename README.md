@@ -92,12 +92,11 @@ First, the optimal number of epsilon was determined by calculating the nearest n
 
 <img width="544" alt="Screen Shot 2021-04-08 at 8 16 43 PM" src="https://user-images.githubusercontent.com/66150928/114111211-7253ff80-98a7-11eb-9b15-212238fdf457.png">
 
-Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 2 to get approximately 21 clusters, 29 noise points, and a silhouette coefficient (SC) of 0.316. This SC is not great, as it implies the clusters are not very dense nor well-separated. While DBSCAN is great at handling noise and clusters of different shapes and sizes, it is extremely sensitive to hyperparameters. For the next report, we may improve clustering results by further fine tuning the epsilon and min samples parameters.
+Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 3 to get approximately 15 clusters, 41 noise points, and a silhouette coefficient (SC) of 0.302. This SC is not great, as it implies the clusters are not very dense nor well-separated. While DBSCAN is great at handling noise and clusters of different shapes and sizes, it is extremely sensitive to hyperparameters. 
 
-<img width="495" alt="Screen Shot 2021-04-08 at 8 16 49 PM" src="https://user-images.githubusercontent.com/66150928/114111231-826bdf00-98a7-11eb-8334-d573b428a262.png">
+<img width="416" alt="Screen Shot 2021-04-26 at 9 35 00 PM" src="https://user-images.githubusercontent.com/66150928/116264058-f8959000-a747-11eb-9048-114261e8a430.png">
 
-
-
+When analyzing the results, it is evident that cluster 0 (red) is the biggest cluster with ⅔ of our data (683 data points), including many Eastern European countries, African countries, and China and India. These countries typically have lower income per capita, which aligns with that feature being our most significant in our PCA analysis. After dropping duplicates, 93 countries are labelled as being in cluster 0. We see 16 countries in cluster 1, composed mostly of “Western” nations, including the United States, Canada, European nations like Austria, UK, France, Germany, Italy, Spain, in addition to Australia. These countries share similar economies and social structures. The subsequent clusters had very few countries--typically between 1 and 3--even though the min points parameter was set at 3 because we had several data points for countries that had data from more than 1 year. Likewise, some countries were placed in more than 1 cluster due to data points from more than 1 year. 
 
 
 ## Supervised Methods and Results 
