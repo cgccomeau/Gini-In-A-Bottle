@@ -5,7 +5,7 @@ Charlie Comeau, Anubhav Agarwal, Yeojin Chang, Amy Liu, and Cecilia Liu
 
 Spring 2021 CS 4641 Intro to Machine Learning: Semester-long Project
 
-## Introduction
+## Introduction - Yeojin
 
 With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more.&#x00B9;
 
@@ -13,7 +13,7 @@ The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequ
 
 ![화면 캡처 2021-03-02 231757](https://user-images.githubusercontent.com/44009995/109751978-912aec00-7bad-11eb-9526-3545116a3191.png)
 
-##  Problem Statement
+##  Problem Statement - Yeojin
 The goal of this study is to understand how different statistics indicating a country's well-being can relate to or predict the country's income inequality, as measured by the Gini Coefficient. 
 
 ## Data Collection
@@ -128,7 +128,7 @@ The correlation coefficient value dropped about 0.14 points to 0.096 for trainin
 
 The nice thing about the testing and training values being consistently low is that overfitting has not occurred here! As a result, we conclude that the features in our dataset and the Gini Coefficient are not strongly linearly correlated and we must now turn to more sophisticated machine learning algorithms than linear regression to capture this relationship.
 
-### Neural Networks
+### Neural Networks - Yeojin
 
 One of the supervised learning methods we implemented was a neural network. We used the sklearn.neural_network.MLPRegressor class within the sci-kit learn library in Python in order to create this model. Before performing the regression, the x data was scaled to proportion to yield better results. After trying different combinations of parameters within the class, it became apparent that the success of the model depended greatly on which parameters were used. In order to take a more systematic approach, the following combinations of parameters were tested using a series of nested for-loops:
 alpha: [0.0001, 0.001, 0.01]
@@ -177,7 +177,7 @@ When predicting the Gini coefficient for countries around the world, the most im
 
 ## Appendix
 
-### Relation to Current Events
+### Relation to Current Events - Yeojin
 With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more. According to the United Nations Development Programme, "The virus is ruthlessly exposing the gaps between the haves and the have nots, both within and between countries." In this study, we hope to discover significant factors that correlate to a country's Gini coefficient, including those related to the COVID-19 pandemic.
 
 ### Previous Research - Charlie
