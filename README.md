@@ -72,7 +72,7 @@ After visualizing our data, it should be easier to see that not all of our featu
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
-### PCA for Dimensionality Reduction
+### PCA for Dimensionality Reduction - Anubhav:
 
 Since we expect to make use of many different economic and demographic features in our model, it would make sense to use dimensionality reduction or feature importance techniques to determine which of our features are the most relevant. We expect lots of different economic statistics we analyze in our model to be correlated to one another, as such techniques like PCA would allow us to reduce our dimensions to components that capture the most variance in our data.
 
@@ -84,7 +84,14 @@ It’s clear to see that the first two components account for almost all the var
 
 ![pca](https://user-images.githubusercontent.com/47800990/114113283-44bd8500-98ac-11eb-9b63-9b4e27190d68.png)
 
-### Clustering - Amy
+#### Feature Importance - Anubhav:
+
+To determine which features were the most important we can analyze the magnitudes of the corresponding feature in the eigenvectors. For the first principal component features (income per person),  (Agriculture value added per worker) and (Real GDP per Capita) were by far the most prevalent in the eigenvectors and thus, were the most important.. These features were also the most important in our second principal components. However population density also seemed to be of a little importance in the second component. 
+
+![feature_imp_1](https://user-images.githubusercontent.com/47800990/116319727-06b5d180-a785-11eb-8b49-347b9e9cb286.png)
+
+![feature_imp_2](https://user-images.githubusercontent.com/47800990/116319730-074e6800-a785-11eb-9e30-fe76587cadd1.png)
+### Clustering - Amy:
 
 After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
 
