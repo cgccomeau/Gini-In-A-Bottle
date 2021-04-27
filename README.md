@@ -144,8 +144,9 @@ R^2 was maximized while MAE and MSE were minimized when alpha was equal to 0.000
 
 Further, we tested the results of the Neural Network algorithm with the data after a PCA transformation, using the methods of parameter tuning. Despite expectations that the PCA transformed data would perform better, the maximum R^2 value was 0.204735, the lowest mean absolute error was 5.446, and the lowest mean squared error was 49.4484. These results were produced when alpha was equal to 0.0001, the logistic activation function was used, and there were three hidden layers -- this was consistent with the results when the algorithm was performed on the original dataset.
 
+![화면 캡처 2021-04-26 205953](https://user-images.githubusercontent.com/44009995/116169284-669f7000-a6d2-11eb-807d-594f6873f02c.png)
 
-We speculate that the PCA transformed data performed inferior to the original data because the inner workings of the Neural Network algorithm were somehow conflicted with how PCA transformed the original data. However, it was interesting to find that the same parameters worked the best in both datasets.
+We speculate that the PCA transformed data performed inferior to the original data because the inner workings of the Neural Network algorithm somehow conflicted with how PCA transformed the original data. However, it was interesting to find that the same parameters worked the best in both datasets.
 
 ### K-Nearest Neighbors
 
