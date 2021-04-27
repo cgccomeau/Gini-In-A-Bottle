@@ -44,7 +44,7 @@ After experimenting the dataset on the year 2011, which has the most data entrie
 One possible drawback from this approach is that we would have inconsistent amounts of data values for each country. I.e. one country might have all years from 2006 to 2016, while another might only have year 2011 and 2012. 
 
 
-#### Data Visualization:
+#### Data Visualization - Charlie:
 
 Before beginning any machine learning algorithms with all features, we wanted to visualize the data between each feature and see how well each individual feature did at predicting the Gini coefficient. In order to do so, we used Seaborn to run a 2-D linear regression between each feature and the Gini coefficient and visualize the results. The images below are those results, with its corresponding correlation coefficient and line of best fit attached.
 
@@ -99,7 +99,7 @@ Then, we ran DBSCAN with an epsilon value of 5000 and min samples = 3 to get app
 When analyzing the results, it is evident that cluster 0 (red) is the biggest cluster with ⅔ of our data (683 data points), including many Eastern European countries, African countries, and China and India. These countries typically have lower income per capita, which aligns with that feature being our most significant in our PCA analysis. After dropping duplicates, 93 countries are labelled as being in cluster 0. We see 16 countries in cluster 1, composed mostly of “Western” nations, including the United States, Canada, European nations like Austria, UK, France, Germany, Italy, Spain, in addition to Australia. These countries share similar economies and social structures. The subsequent clusters had very few countries--typically between 1 and 3--even though the min points parameter was set at 3 because we had several data points for countries that had data from more than 1 year. Likewise, some countries were placed in more than 1 cluster due to data points from more than 1 year. 
 
 
-## Supervised Methods and Results 
+## Supervised Methods and Results - Charlie
 Our general idea is to develop a prediction model that would output our predicted Gini coefficient for a specific country in a specific year, given other parameters like happiness scores or mortality ratios. We would focus both on factors that are dependent on income, as well as those that are not directly dependent, and find correlations between the weights of these factors and the prediction accuracy.
 
 We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
@@ -108,11 +108,11 @@ We would also use multiple supervised learning models and elaborate on their per
 
 Due to the non-linear relationship between the features and Gini Coefficient, we expect Linear Regression to perform the most poorly. We expect Neural Networks to perform the best because its non-linear activation function will be able to capture the non-linear relationship between the features and Gini coefficient. We will also run each model twice -- once on the original dataset and once on the PCA transformed set. We are expecting that the dimensionality reduction due to PCA will make the PCA transformed data to have higher results.
 
-* Test/Train Split:
+* Test/Train Split - Charlie:
 
 After using the pandas library to convert our CSV data into an operable dataframe, we realized that for the two supervised learning methods, we needed to split our data into a testing and training set. Since each row of our data can be uniquely represented by a tuple of the country and year, we realized if we did a random train/test split on the entire dataset, there is a chance that one year could be disproportionately placed in either the training or testing set. So to compensate, we first divided all our data by year, used sklearn to do a randomized 85/15% test/train split on each year, then concatenated all the individual test/train splits from each year back into its own single set.
 
-### Linear Regression
+### Linear Regression - Charlie
 
 Now that we’ve split and visualized our data, we are ready to run Linear Regression on all features! Using sklearn’s LinearRegression class, we are able to fit our model with the training data, test it against the test data, and create all the accompanying analysis. Here are all the coefficients from our model’s calculated line of best fit. Note the scales of each variable are different (such as a change in 10 doesn’t mean much for Income per Person ($10), however it is a massive difference for Average Life Expectancy (10 years)), so not much insight can be intuitively gleaned from the coefficients.
 
@@ -154,7 +154,7 @@ Further, we tested the results of the Neural Network algorithm with the data aft
 
 We speculate that the PCA transformed data performed inferior to the original data because the inner workings of the Neural Network algorithm somehow conflicted with how PCA transformed the original data. However, it was interesting to find that the same parameters worked the best in both datasets.
 
-## Discussion
+## Discussion - Charlie
 
 A significant challenge we encountered initially was acquiring sufficient data and cleaning available data. To avoid having empty cells in our dataset, we selected one year which had the most data entries available, but we decided 134 unique data entries was still not sufficient for machine learning methods using 12 features. Thus, we addressed this issue by expanding the dataset by using (country, year) tuples as keys instead of solely using country, stretching the dataset from 134 entries to 924. To further increase our dataset, we aim to look at incorporating data from other years as well and using feature imputation to fill in missing cells; however, there are concerns that there may be too much missing data for this to be successful.
  
@@ -162,13 +162,13 @@ From the data visualization and linear regression, it is quite clear that our da
  
 After running unsupervised methods (PCA, DBSCAN), and supervised methods (neural network, linear regression), we obtained relatively low confidence scores, as indicated by a silhouette coefficient of 0.302 (DBSCAN) and low correlation coefficients of about 0.5 for the neural network and about 0.2 for linear regression. In the future, we will have to focus on optimization of parameters as well as data refinement to get better results. With more conclusive results, we can state with more confidence the features that are more highly correlated to Gini coefficient prediction. 
 
-## Conclusions
+## Conclusions - Charlie
 
 When predicting the Gini coefficient for countries around the world, the most important features we determined were income per person, agriculture value added per worker, and real GDP per capita. Countries of similar affluence and geographical locations tended to form clusters, indicating similar trends of Gini coefficient prediction. In reality, the causes of income inequality is a complex political and socio-economic issue that relies on much more than just 12 features, thus in order to further explore this question, future work should account for a larger range of features that would also increase the computational complexity of such a project. However, with the ever-growing abundance of data, we envision machine learning to become an even more powerful and successful tool to predict economic trends such as income inequality across the globe. 
 
 
 
-## References
+## References - Charlie
   1. “Coronavirus vs. Inequality.” UNDP, feature.undp.org/coronavirus-vs-inequality/.
   2. “Income Inequality - OECD Data.” TheOECD, data.oecd.org/inequality/income-inequality.htm. 
   3. Kuznets, Simon. "Economic growth and income inequality." The American economic review 45.1 (1955): 1-28.
@@ -180,7 +180,7 @@ When predicting the Gini coefficient for countries around the world, the most im
 ### Relation to Current Events
 With the rise of COVID-19, income inequality across the world is being illuminated through healthcare disparities in number of cases, treatment availability, vaccine distribution, and more. According to the United Nations Development Programme, "The virus is ruthlessly exposing the gaps between the haves and the have nots, both within and between countries." In this study, we hope to discover significant factors that correlate to a country's Gini coefficient, including those related to the COVID-19 pandemic.
 
-### Previous Research
+### Previous Research - Charlie
 In the greater scope of income inequality and economic development, the Gini Coefficient has been used as one factor to help predict economic growth <sup>4</sup>, however we have found only one other source that attempted to predict a state’s Gini Coefficient like us. In a model created by Cabrera and Srinath <sup>5</sup>, they tried to use “demographics, race, education, and federal & state spend[ing] in education” to predict whether a state or county’s Gini Coefficient is above or below the national median. Pulling the majority of their data from US Federal Government sources like the US Census, their goal was to better understand how and why America’s domestic features made its Gini Coefficient significantly higher than that of the other G7 countries (0.47 to 0.33), and they found that race features were the most successful at predicting income inequality, specifically the proportion of the black and white population alone in a Random Forest Classifier yielded an accuracy of 96% on determining whether a region was above or below the median national Gini Coefficient.
 
 About using the Gini Coefficient to predict economic growth in Dutt and Tsetlin’s work at the INSEAD Singapore Business school, the authors found that the fraction of the population living in poverty was much more accurate in predicting economic growth measures such as “schooling, institutional quality, and per capita income” than the Gini Coefficient. They noted that the poverty measures are influenced by those in the bottom economic ring of society, whereas the Gini coefficient is equally influenced by both sides of the economic spectrum, and recommended on focusing on alleviating poverty at the bottom over addressing a country’s income inequality as a policy approach for increasing economic development.
