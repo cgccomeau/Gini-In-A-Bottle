@@ -91,7 +91,7 @@ To determine which features were the most important we can analyze the magnitude
 ![feature_imp_1](https://user-images.githubusercontent.com/47800990/116319727-06b5d180-a785-11eb-8b49-347b9e9cb286.png)
 
 ![feature_imp_2](https://user-images.githubusercontent.com/47800990/116319730-074e6800-a785-11eb-9e30-fe76587cadd1.png)
-### Clustering - Amy:
+### Clustering - Amy, Anubhav:
 
 After PCA, we used Density-based spatial clustering of applications with noise (DBSCAN) to group together countries with similar features.
 
