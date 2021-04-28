@@ -199,7 +199,7 @@ About using the Gini Coefficient to predict economic growth in Dutt and Tsetlinâ
 
 These literature reviews are important because while the Gini Coefficient provides a wealth of information on a countryâ€™s economic condition, they do not provide the whole picture and as a result, our group would like to note our results does not claim to offer a perfect solution to this complex issue.
 
-### Expected Results from Supervised Methods
+### Expected Results from Supervised Methods - Jing Xi
 
 * Linear Regression: attempt to find a direct relationship between these parameters and the Gini coefficient. However, this would not be able to capture complex or non-linear relationships 
 * Neural Networks: attempts to capture complex relationships without extensive effort on feature engineering. However, it might be prone to overfitting, especially since our dataset is small.
