@@ -16,7 +16,7 @@ The Gini Coefficient, which ranges from 0 (perfect equality) to 1 (perfect inequ
 ##  Problem Statement - Yeojin
 The goal of this study is to understand how different statistics indicating a country's well-being can relate to or predict the country's income inequality, as measured by the Gini Coefficient. 
 
-## Data Collection
+## Data Collection - Jing Xi
 
 Our data for Gini coefficients comes from gapminder.org, “an independent Swedish foundation with no political, religious or economic affiliations.” It consists of 138 unique countries, and data entries for each country ranging from year 2006 to 2016. Its corresponding features aside from the Gini index include democracy index, GDP per capita, percentage of GDP in investment sector, and percentage of GDP in taxation sector. However, this data only covers the basic statistics of the country on the economics side. We wanted to explore more relations of the Gini index in each country with other factors such as education, population, demographics, etc. Thus, we combined this dataset with other datasets from ourworldindata.org, an organization which provides “research and data to make progress against the world’s largest problems”, compiling data from many sources as specialized institutes (like the Peace Research Institute Oslo (PRIO)), research articles( like ’Inequality Among World Citizens: 1820-1992’ in the American Economic Review), and international institutions or statistical agencies (like the OECD, the World Bank, and UN institutions). We gathered data that most closely delineates the countries we are investigating, extending the features collected and examined.
 
@@ -68,7 +68,7 @@ One cool thing to observe is that over our 11 year observation period, income in
 
 After visualizing our data, it should be easier to see that not all of our features are linearly correlated that well (if at all), thus as a group prediction, we are not expecting terribly high results from applying Linear Regression as is.
 
-## Unsupervised Methods and Results 
+## Unsupervised Methods and Results - Amy & Anubhav
 
 Using different economic and demographics data as our features we can first explore our data from an unsupervised perspective. 
 
@@ -111,7 +111,7 @@ Below is a list of countries that comprise cluster 1 - we highlited this cluster
 
 ![cluster_1](https://user-images.githubusercontent.com/47800990/116320857-061e3a80-a787-11eb-8cf8-4df23cd5f183.png)
 
-## Supervised Methods and Results - Charlie
+## Supervised Methods and Results - Charlie & Yeojin
 Our general idea is to develop a prediction model that would output our predicted Gini coefficient for a specific country in a specific year, given other parameters like happiness scores or mortality ratios. We would focus both on factors that are dependent on income, as well as those that are not directly dependent, and find correlations between the weights of these factors and the prediction accuracy.
 
 We would also use multiple supervised learning models and elaborate on their performances with this specific task. The models we will be using include: 
